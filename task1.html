@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pricing & Dicount-task</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 50%;
+        margin: 20px auto;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #28a745;
+      }
+
+      .bundle-box {
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 15px;
+        cursor: pointer;
+        transition: border 0.3s;
+      }
+
+      .bundle-box.active {
+        border-color: #28a745;
+      }
+
+      .box-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .discount {
+        position: relative;
+        right: 20px;
+        color: #28a745;
+        font-weight: bold;
+      }
+
+      .details {
+        display: none;
+        margin-top: 10px;
+      }
+
+      .section-title {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .pair-options {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .pair-options label {
+        margin-right: 10px;
+      }
+
+      .summary {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        font-weight: bold;
+        border-top: 1px solid #ccc;
+        margin-top: 20px;
+      }
+
+      .add-to-cart {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .add-to-cart button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        background: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      input[type='radio'] {
+        margin-right: 5px;
+      }
+
+      .options-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+      }
+
+      .option-group {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      .option-group:last-child {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>--------------- Bundle & Save ---------------</h2>
+
+      <!-- Box Template -->
+      <div class="bundle-box" onclick="selectBox(1)">
+        <div class="box-header">
+          <div class="left">
+            <label
+              ><input type="radio" name="bundle" value="195" />1 Pair</label
+            >
+            <span>DKK 195.00</span>
+          </div>
+          <div class="discount">50% OFF</div>
+        </div>
+        <div class="details" id="details1">
+          <div class="section-title">Size</div>
+          <div class="options-row">
+            <div class="option-group">
+              <label><input type="radio" name="size1_1" />Small</label>
+              <label><input type="radio" name="size1_1" />Large</label>
+            </div>
+          </div>
+          <div class="section-title">Color</div>
+          <div class="options-row">
+            <div class="option-group">
+              <label><input type="radio" name="color1_1" />Red</label>
+              <label><input type="radio" name="color1_1" />Blue</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bundle-box" onclick="selectBox(2)">
+        <div class="box-header">
+          <div class="left">
+            <label
+              ><input type="radio" name="bundle" value="345" />2 Pairs</label
+            >
+            <span>DKK 345.00</span>
+          </div>
+
+          <div class="discount">40% OFF</div>
+        </div>
+        <div class="details" id="details2">
+          <div class="section-title">Size</div>
+          <div class="options-row">
+            <div class="option-group">
+              <label><input type="radio" name="size2_1" />Small</label>
+              <label><input type="radio" name="size2_1" />Large</label>
+            </div>
+          </div>
+          <div class="section-title">Color</div>
+          <div class="options-row">
+            <div class="option-group">
+              <label><input type="radio" name="color2_1" />Red</label>
+              <label><input type="radio" name="color2_1" />Blue</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bundle-box" onclick="selectBox(3)">
+        <div class="box-header">
+          <div class="left">
+            <label
+              ><input type="radio" name="bundle" value="528" />3 Pairs</label
+            >
+            <span>DKK 528.00</span>
+          </div>
+          <div class="discount">60% OFF</div>
+        </div>
+        <div class="details" id="details3">
+          <div class="section-title">Size</div>
+          <div class="options-row">
+            <div class="option-group">
+              <label><input type="radio" name="size3_1" />Small</label>
+              <label><input type="radio" name="size3_1" />Large</label>
+            </div>
+          </div>
+          <div class="section-title">Color</div>
+          <div class="options-row">
+            <div class="option-group">
+              <label><input type="radio" name="color3_1" />Red</label>
+              <label><input type="radio" name="color3_1" />Blue</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Row -->
+      <div class="summary">
+        <span>Free 2-Day Shipping</span>
+        <span>Total: DKK 360.00</span>
+      </div>
+
+      <!-- Add to Cart Button -->
+      <div class="add-to-cart">
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <script>
+      function selectBox(num) {
+        for (let i = 1; i <= 3; i++) {
+          document.getElementById(`details${i}`).style.display = 'none'
+          document
+            .querySelectorAll('.bundle-box')
+            [i - 1].classList.remove('active')
+        }
+        document.getElementById(`details${num}`).style.display = 'block'
+        document
+          .querySelectorAll('.bundle-box')
+          [num - 1].classList.add('active')
+        document.querySelector(
+          `input[name="bundle"][value="${
+            num === 1 ? '195' : num === 2 ? '345' : '528'
+          }"]`
+        ).checked = true
+      }
+    </script>
+  </body>
+</html>
